@@ -1,0 +1,31 @@
+.btn {
+    display: inline-block;
+    border: none;
+    color: lighten($color-dark, 100);
+    text-decoration: none;
+    padding: $size-main*1.5 $size-main*4;
+    font-size: $size-main*2;
+    letter-spacing: 1.5;
+    border-radius: $size-main*0.5;
+    text-align: $position;
+    width: $size-main*10;
+    cursor: pointer;
+    font-family: $font-main;
+    margin: $size-main;
+    opacity: 0.94;
+    transition: all 0.6 ease;
+
+    &-1,
+    &-2,
+    &-3,
+    &-html,
+    &-css {
+        background-color: $color-brown;
+        box-shadow: 3px 3px 7px darken($color-brown, 3%);
+
+        &:hover {
+            background-color: darken($color-brown, 5%);
+            box-shadow: 3px 3px 7px darken($color-brown, 25%);
+        }
+    }
+}

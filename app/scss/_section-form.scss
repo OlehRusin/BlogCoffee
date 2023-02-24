@@ -1,0 +1,51 @@
+.container {
+    max-width: $size-width*12+px;
+    margin: auto;
+    padding: $zero-size $size-main*2;
+}
+
+.form-section {
+    padding: $size-main*3 $zero-size;
+    background-color: darken($color-gray, 20%);
+
+    form {
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: $size-main*1.5;
+
+        padding: {
+            left: $size-main*2;
+            right: $size-main*2;
+        }
+
+        input {
+            border: none;
+            padding: $size-main*1.5 $size-main;
+            width: $size-width*0.8%;
+            height: $size-main*2.25;
+            font-family: $font-second;
+            font-style: italic;
+            font-weight: bold;
+            outline: none;
+            background-color: lighten($color-gray, 8%);
+            transition: background-color 0.6 ease;
+            color: $color-dark;
+
+            &:focus {
+                background-color: lighten($color-gray, 40%);
+            }
+        }
+
+        &::-webkit-input-placeholder {
+            color: darken($color-gray, 12%);
+            opacity: 0.5;
+        }
+
+        button {
+            font-size: $size-main*1.7;
+            width: $size-width*1%;
+            margin-top: $zero-size;
+            padding: $size-main*1.35;
+            background-color: $color-brown;
+        }
+    }
+}

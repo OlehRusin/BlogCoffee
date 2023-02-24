@@ -1,0 +1,45 @@
+.section-about {
+    background-color: lighten($color-gray, 40);
+
+    .container {
+        grid-template-columns: 1.2fr 1fr;
+    }
+}
+
+.about-left {
+    border-right: $size-main*0.2 solid $color-gray;
+    font-size: $size-main + 8px;
+    font-family: $font-second;
+
+    padding: {
+        top: $size-main*6;
+        left: $size-main*6;
+        right: $size-main*6;
+        bottom: $size-main;
+    }
+
+    h2 {
+        font-family: $font-main;
+        font-size: $size-main*3;
+
+        margin: {
+            top: $zero-size;
+            bottom: $size-main*4;
+        }
+    }
+}
+
+.img-responsive {
+    display: block;
+    max-width: $size-width*1%;
+    height: auto;
+}
+
+.about-right {
+    padding: {
+        top: $size-main*5;
+        left: $size-main*5;
+        right: $size-main*3;
+        bottom: $size-main*5;
+    }
+}

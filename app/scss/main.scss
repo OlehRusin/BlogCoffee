@@ -1,0 +1,431 @@
+$color-brown: #753b15;
+$color-gray: rgb(112, 109, 109);
+$color-dark: black;
+$position: center;
+$zero-size: 0px;
+$size-main: 10px;
+$size-width: 100;
+$font-main: Oswald;
+$font-second: sans-serif;
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding: $zero-size;
+    margin: $zero-size;
+    color: $color-dark;
+}
+
+.grid {
+    display: grid
+}
+
+header.grid {
+    min-height: $size-width+vh;
+    background-size: cover;
+    background-image: url('../img/header2.jpg');
+    position: relative;
+    background-position: $position;
+    align-content: $position;
+
+    &::before {
+        content: "";
+        background-color: $color-gray;
+        position: absolute;
+        bottom: $zero-size;
+        top: $zero-size;
+        left: $zero-size;
+        right: $zero-size;
+        opacity: 0.5;
+    }
+
+    .header-container {
+        z-index: 1;
+        color: lighten($color-dark, 100);
+        text-align: $position;
+        padding: $size-main*6 $size-main*2;
+
+        h1 {
+            font-size: $size-main*6;
+            font-family: $font-main;
+            text-transform: uppercase;
+            margin: $size-main*2 $zero-size;
+            line-height: 1.5;
+        }
+    }
+}
+
+.main-footer {
+    padding: $size-main*4 $zero-size $size-main*2.5;
+    background-color: darken($color-gray, 20%);
+    text-align: $position;
+    color: lighten($color-dark , 85%);
+    font-family: $font-main;
+}
+
+.footer {
+    &-img img {
+        width: $size-main*3;
+        height: $size-main*3;
+        margin: 1em;
+        transition: all 0.25s ease;
+
+        &:hover {
+            transform: scale(1.3);
+        }
+    }
+
+    &-text span {
+        font-size: $size-main*3;
+        letter-spacing: $size-main*0.2;
+        line-height: 1.5;
+        display: block;
+
+        span {
+            font-size: $size-main*2;
+            letter-spacing: $size-main*0.1;
+        }
+    }
+}
+
+@import "buttons";
+@import "section-about";
+@import "section-form";
+@import "photo-section";
+@import "section-blog";
+
+
+
+@media screen and (max-width: 992px) {
+    header.grid .header {
+        &-container h1 {
+            font-size: $size-main*15;
+        }
+
+        &-btns {
+            text-align: $position;
+
+            .btn {
+                display: block;
+                margin: $size-main*5 auto;
+                padding: $size-main*3 $size-main*15;
+                font-size: $size-main*4;
+                width: $size-main*20;
+            }
+        }
+    }
+
+    .section-about .container {
+        grid-template-columns: 1fr;
+
+        >div {
+            padding: 3%;
+
+            &.about-left {
+                border: $zero-size;
+
+                h2 {
+                    text-align: $position;
+                    font-size: $size-main*4;
+                    margin-bottom: $size-main;
+                }
+            }
+
+            &.about-right {
+                padding: $size-width*0.03% $size-width*0.05%;
+
+                .img-responsive {
+                    width: $size-width*0.6%;
+                    margin: $zero-size auto;
+                }
+            }
+        }
+    }
+
+    .form-section {
+        form {
+            grid-template-columns: 1fr;
+            grid-gap: $size-main*3;
+
+            div {
+                input {
+                    width: $size-width*1%;
+                    padding: $size-main*3 $zero-size;
+                    font-size: $size-main*3;
+                    text-indent: $size-main*2;
+                }
+
+                &:last-of-type {
+                    text-align: $position;
+
+                    .btn {
+                        margin: $zero-size;
+                        font-size: $size-main*4;
+                        width: $size-width*0.5%;
+                    }
+                }
+            }
+        }
+    }
+
+    .photo {
+        &-section {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &-item {
+            min-height: $size-width*0.3vh;
+            font-size: $size-main*5;
+
+            &:nth-child(1) {
+                grid-column: 1;
+            }
+
+            &:nth-child(4) {
+                grid-column: 2;
+            }
+
+            &:nth-child(5) {
+                grid-column: 1;
+                grid-row: 3;
+            }
+
+            &:nth-child(8) {
+                grid-column: 2;
+                grid-row: 4;
+            }
+        }
+    }
+
+    .section-blog .container h1 {
+        font-size: 3em;
+    }
+
+    .blog {
+        &-main {
+            grid-template-columns: repeat(2, 1fr);
+
+            .btn-blog {
+                grid-column: 1/3;
+
+                a {
+                    margin: $size-main*3;
+                    font-size: $size-main*3.5;
+                    width: $size-width*0.5%;
+                }
+            }
+        }
+
+        &-item {
+            grid-template-rows: none;
+
+            &:nth-child(3) {
+                grid-column: 1/3;
+                grid-row: 2;
+            }
+
+            &:nth-child(4) {
+                grid-column: 1/3;
+                grid-row: 3;
+            }
+
+            &-content {
+                height: $size-main*8;
+                margin: $size-main;
+                padding: $size-main;
+
+                h4 {
+                    font-size: $size-main*4;
+                }
+
+                p {
+                    display: none;
+                }
+            }
+        }
+
+        .frame {
+            height: $size-width*4px;
+        }
+
+    }
+
+    .footer {
+        &-img img {
+            width: $size-main*6;
+            height: $size-main*6;
+            margin: 3em 2em;
+        }
+
+        &-text span {
+            font-size: $size-main*8;
+
+            span {
+                font-size: $size-main*5;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header.grid .header {
+        &-container h1 {
+            font-size: $size-main*7;
+        }
+
+        &-btns .btn {
+            padding: $size-main $size-main*8;
+            font-size: $size-main*2.5;
+
+        }
+    }
+
+    .photo {
+        &-section {
+            grid-template-columns: 1fr;
+        }
+
+        &-item {
+            &:nth-child(1) {
+                grid-column: 1;
+            }
+
+            &:nth-child(4) {
+                grid-column: 1;
+            }
+
+            &:nth-child(5) {
+                grid-column: 1;
+                grid-row: 5;
+            }
+
+            &:nth-child(8) {
+                grid-column: 1;
+                grid-row: 8;
+            }
+        }
+    }
+
+    .blog {
+        &-main {
+            grid-template-columns: 1fr;
+
+            .btn-blog {
+                grid-column: 1/2;
+            }
+        }
+
+        &-item {
+            &:nth-child(3) {
+                grid-column: 1;
+                grid-row: 3;
+            }
+
+            &:nth-child(4) {
+                grid-column: 1;
+                grid-row: 4;
+            }
+
+            &-content {
+                height: $size-main*4;
+                font-size: $size-main*2.5;
+            }
+
+        }
+    }
+
+    .frame {
+        height: $size-width*2.5px;
+    }
+
+    .footer {
+        &-img img {
+            width: $size-main*5;
+            height: $size-main*5;
+            margin: 2em 2em;
+        }
+
+        &-text span {
+            font-size: $size-main*6;
+
+            span {
+                font-size: $size-main*4;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    header.grid .header {
+        &-container h1 {
+            font-size: $size-main*4;
+        }
+
+        &-btns .btn {
+            padding: $size-main $size-main*4;
+            font-size: $size-main*2;
+            margin: $size-main*2 auto;
+        }
+    }
+
+    .about-left {
+        p {
+            display: none;
+        }
+
+        h2 {
+            font-size: $size-main*3;
+        }
+    }
+
+    .about-right {
+        img {
+            width: $size-width*0.5%;
+        }
+    }
+
+    .form-section {
+        form {
+            div {
+                input {
+                    font-size: $size-main*2;
+                    text-indent: $size-main;
+                }
+
+                &:last-of-type {
+                    .btn {
+                        font-size: $size-main*2.5;
+                        width: $size-width*1%;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer {
+        &-img img {
+            width: $size-main*4;
+            height: $size-main*4;
+            margin: 2em 1em;
+        }
+
+        &-text span {
+            font-size: $size-main*4;
+
+            span {
+                font-size: $size-main*3;
+            }
+        }
+    }
+
+
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
