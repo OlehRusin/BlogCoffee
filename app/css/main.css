@@ -327,9 +327,9 @@ header.grid .header-container h1 {
   header.grid .header-btns .btn {
     display: block;
     margin: 50px auto;
-    padding: 30px 150px;
+    padding: 30px 130px;
     font-size: 40px;
-    width: 200px;
+    width: 220px;
   }
   .section-about .container {
     grid-template-columns: 1fr;
